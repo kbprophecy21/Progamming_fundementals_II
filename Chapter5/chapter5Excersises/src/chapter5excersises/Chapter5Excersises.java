@@ -244,25 +244,26 @@ public class Chapter5Excersises {
         
         
         char letter = 'X';
-        Scanner keyboard = new Scanner(System.in);
-        do {
-            //read a letter.
-            System.out.println("Enter a letter: ");
-            letter = keyboard.nextLine().charAt(0);
-            System.out.print(letter);
-            System.out.print("\n");
-            if (
-                    (letter == 'A') || (letter == 'a') || 
-                    (letter == 'E') || (letter == 'e') || 
-                    (letter == 'I') || (letter == 'i') || 
-                    (letter == 'O') || (letter == 'o') || 
-                    (letter == 'U') || (letter == 'u') 
-                )
-            continue;
-            
-           
+        try (Scanner keyboard = new Scanner(System.in)) {
+            do {
+                //read a letter.
+                System.out.println("Enter a letter: ");
+                letter = keyboard.nextLine().charAt(0);
+                System.out.print(letter);
+                System.out.print("\n");
+                if (
+                        (letter == 'A') || (letter == 'a') || 
+                        (letter == 'E') || (letter == 'e') || 
+                        (letter == 'I') || (letter == 'i') || 
+                        (letter == 'O') || (letter == 'o') || 
+                        (letter == 'U') || (letter == 'u') 
+                    )
+                continue;
+                
+               
+            }
+            while ((letter != 'X') && (letter!= 'x'));
         }
-        while ((letter != 'X') && (letter!= 'x'));
     }
     
     public static void WriteNumbersFile() throws FileNotFoundException{

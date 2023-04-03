@@ -48,7 +48,8 @@ public class Chapter6Excercises {
         // Stock stockOne = Test.TestUserInput();
         // stockOne.output();
 
-        Test.TestAggClasses();
+        //Test.TestAggClasses();
+        Test.TestUserCourses();
 
     }
 }

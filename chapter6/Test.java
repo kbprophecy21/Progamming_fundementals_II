@@ -102,11 +102,60 @@ public class Test {
         return newStock;
     }
 
+    /**
+     * Testing the Aggregation class {Course.java, TextBook.java} Need for support
+     */
     public static void TestAggClasses() {
-        Instructor myinstructor = new Instructor("Kyle", "Brewer", "102");
-        TextBook myTextBook = new TextBook("Java is fun", "Gibbs", "ping");
+        Instructor myinstructor = new Instructor("McClean", "Zack", "4015");
+        TextBook myTextBook = new TextBook("Maintenance Tech", "SOSO", "Jeld-Wen");
         Course myCourse = new Course("Java", myinstructor, myTextBook);
         System.out.println(myCourse);
+    }
+
+    /**
+     * user input test method for the course, instructor, textbook classes. using
+     * the aggregation topic.
+     */
+    public static Instructor TestUserInstructor() {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.print("What is the instructor's last name?: ");
+        String instructorLastName = keyboard.nextLine();
+        System.out.print("\nWhat is the instructor's first name?: ");
+        String instructorFirstName = keyboard.nextLine();
+        System.out.print("\nWhat is the instructor's office number?: ");
+        String officeNumber = keyboard.nextLine();
+
+        keyboard.close();
+        return new Instructor(instructorLastName, instructorFirstName, officeNumber);
+
+    }
+
+    /**
+     * @return
+     */
+    public static TextBook TestUserTexbook() {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.print("What is the Title of the book?: ");
+        String bookTitle = keyboard.nextLine();
+        System.out.print("\nWho is the author of the book?: ");
+        String bookAuthor = keyboard.nextLine();
+        System.out.print("\nWho is the publisher?: ");
+        String bookPublisher = keyboard.nextLine();
+
+        keyboard.close();
+        return new TextBook(bookTitle, bookAuthor, bookPublisher);
+    }
+
+    public static Course TestUserCourses() {
+        Instructor instructor = TestUserInstructor();
+        TextBook textbook = TestUserTexbook();
+        Scanner keyboard = new Scanner(System.in);
+        System.out.print("\nWhat is the name of the Course?: ");
+        String courseName = keyboard.nextLine();
+
+        keyboard.close();
+        return new Course(courseName, instructor, textbook);
+
     }
 
 }
