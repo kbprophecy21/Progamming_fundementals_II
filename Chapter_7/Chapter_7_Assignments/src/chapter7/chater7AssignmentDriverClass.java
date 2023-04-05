@@ -14,7 +14,7 @@ public class chater7AssignmentDriverClass {
         //Test.TestEmployeePayArray();
         //Test.TestArrayParameters();
 
-        int[] numbers = {3, 5, 3};
+        int[] dummy_numbers = {3, 5, 3};
         //Test.getMaxNumber(numbers);
         //System.out.println("\n");
         //Test.getMinNumber(numbers);
@@ -23,7 +23,12 @@ public class chater7AssignmentDriverClass {
 
 
         //Test.TestPartiallyFilledArray();
-        Test.writeArrayToFile();
+        //Test.writeArrayToFile();
+
+        //TestArrays.StringArray();
+        int[] dummylist = {1, 3, 7, 8, 5, 2, 9, 6};
+        //int result = Sequential_Search.LeanerSearch(valuelist, 7);
+        //System.out.println(result);
 
     }
 }

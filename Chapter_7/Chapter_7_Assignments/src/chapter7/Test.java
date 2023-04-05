@@ -295,4 +295,41 @@ public class Test {
         }
 
     }
+
+    // read numbers from the file to an array
+
+    public static void numbersFileArray(PrintWriter fileName) throws FileNotFoundException
+
+    {
+        final int SIZE = 100;
+        int[] numbers2 = new int[SIZE];
+        PrintWriter File = new PrintWriter(fileName);
+        Scanner inputFile = new Scanner((Readable) File);
+        int position = 0;
+        
+        while (inputFile.hasNext() && (position < SIZE))
+        {
+            numbers2[position] = inputFile.nextInt();
+            position++;
+        }
+        inputFile.close();
+        PrintArray(numbers2);
+    }
+
+
+    /**
+     * method that returns array object as reference.
+     */
+    public static int[] ReturnArray()
+    {
+        int[] array = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        return array;
+
+    }
+
+    
+
+
+
+
 }
