@@ -1,6 +1,9 @@
 package chapter7;
 
 import java.util.Scanner;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.util.Random;
 
 public class Test {
 
@@ -163,12 +166,16 @@ public class Test {
      */
     public static void getMaxNumber(int[] arrayNumbers) {
         int max = Integer.MAX_VALUE;
-        int index;
-        for (index = 0; index < arrayNumbers.length; index++) {
-            if (arrayNumbers[index] > max)
-                max = arrayNumbers[index];
+        // int index;
+        /*
+         * for (index = 0; index < arrayNumbers.length; index++) {
+         * if (arrayNumbers[index] > max)
+         * max = arrayNumbers[index];
+         */
+        for (int element : arrayNumbers)
+            if (element > max)
+                max = element;
 
-        }
         System.out.println("Largest number in array is: " + max);
     }
 
@@ -176,7 +183,7 @@ public class Test {
      * method that returns the minium number in the array.
      */
     public static void getMinNumber(int[] arrayNumbers) {
-        int min = Integer.MAX_VALUE;
+        int min = Integer.MIN_VALUE;
         int index;
         for (index = 0; index < arrayNumbers.length; index++) {
             if (arrayNumbers[index] < min)
@@ -184,5 +191,108 @@ public class Test {
 
         }
         System.out.println("smallest number in array is: " + min);
+    }
+
+    /**
+     * method that returns the sum of the list
+     * 
+     * @param list
+     * @return
+     */
+    public static int sumList(int[] list) {
+        if (list.length == 0) {
+            System.out.println("The list is empty");
+            return 0;
+        }
+        int sum = 0;
+        for (int element : list)
+            sum = sum + element;
+        return sum;
+
+    }
+
+    /**
+     * method that returns the average number of the list.
+     * 
+     * @param list
+     * @return
+     */
+    public static double average(int[] list) {
+        int len = list.length;
+        if (list.length == 0) {
+            System.out.println("The array is empty, so there is no average!");
+            return 0;
+        }
+        return sumList(list) / len;
+    }
+
+    // method to print a partial array with N numbers.
+    public static void printPartialList(int[] list, int n) 
+    {
+        int i;
+        for (i=0; i < n; i++)
+            System.out.print(list[i]+ " ");
+        
+    }
+
+    
+    /**
+     *  read at most a 100 numbers and store them into an array
+     * stop adding the numbers when we enter 0
+     */
+    public static void TestPartiallyFilledArray() {
+        // init varibles
+        int LIMIT = 5; // change this to become dynamic so it's not hard coded. 
+        int SENTINEL = 0;
+        int counter = 0;
+        int number;
+
+        // init array and objects.
+        int[] array = new int[LIMIT];
+        Scanner keyboard = new Scanner(System.in); // haven't closed the keyboard yet kyle!!!
+
+        // using the do while loop to read at least onces for the array
+        do {
+            // read a number
+            System.out.print("Enter a number or enter " + SENTINEL + " to exit:");
+            number = keyboard.nextInt();
+
+            // check if we reach the SENTINEL value.
+            if (number == SENTINEL)
+                break;
+
+            // add it to the array.
+            array[counter] = number;
+            counter++;
+
+            // check if we got to the limit
+            if (counter == LIMIT)
+                System.out.println("The array is reach max limit- Limit = " + LIMIT);
+
+        } while ((number != SENTINEL) && (counter < LIMIT));
+        Test.printPartialList(array, counter);
+    }
+
+
+    public static void writeArrayToFile() throws FileNotFoundException
+    {
+        // add the numbers between 1 and 100 to an array.
+        int[] listNumbers = new int[100];
+        int i;
+        for (i = 1; i <= 100; i++)
+        {
+            listNumbers[i-1] = i;
+        }
+        PrintArray(listNumbers);
+
+
+        try (// print the array into a file.
+        PrintWriter outFile = new PrintWriter("Numberlist.txt")) {
+            // add array elements to the file.
+            for (int element: listNumbers)
+                outFile.println(element);
+            outFile.close();
+        }
+
     }
 }
