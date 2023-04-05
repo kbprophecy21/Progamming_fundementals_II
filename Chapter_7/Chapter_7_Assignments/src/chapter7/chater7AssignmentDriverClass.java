@@ -36,6 +36,14 @@ public class chater7AssignmentDriverClass {
  * 
  * ####REMEMBER TO IMPORT THE CLASS.
  * 
+ * ArrayList<String> list = new ArrayList<String>(300); // adding capacity to
+ * the list also/
+ * 
+ * ArrayList<Ojecttype> list = new ArrayList<Objecttype>();
+ * list.add(objectType element);
+ * 
+ * 
+ * 
  * example: ArrayList<String> nameList = new ArrayList<String>();
  * 
  * nameList.add() = "bob";
